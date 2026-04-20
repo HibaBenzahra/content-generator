@@ -1,0 +1,11 @@
+services:
+  content-generator:
+    build: .
+    ports:
+      - "7860:7860"
+    env_file:
+      - .env
+    volumes:
+      - ./pipeline:/app/pipeline
+      - ./main.py:/app/main.py
+    restart: unless-stopped
